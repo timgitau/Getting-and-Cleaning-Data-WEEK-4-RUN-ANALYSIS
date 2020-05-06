@@ -2,10 +2,10 @@
 # Tim Gitau
 # May 6th 2020
 
-# runAnalysis.r:
+# runanalysis.r:
 
-###### 1. Merge the training and the test sets to create one data set.
-##work directory set to :"C:/Users/timgi/Desktop/TKG DataScience/UCI HAR Dataset"
+# 1. Merge the training and the test sets to create one data set.
+##current work directory set to :"C:/Users/timgi/Desktop/TKG DataScience/UCI HAR Dataset"
 
 # Import training data from files & Name the columns 
 features <- read.table('./features.txt',header=FALSE);
@@ -38,7 +38,7 @@ MergedDataSet = rbind(trainingSet,testSet);
 # Create columns vector to prepare data for subsetting
 columns <- colnames(MergedDataSet);
 
-###### 2. Extract only the measurements on the mean and standard deviation for each measurement
+## 2. Extract only the measurements on the mean and standard deviation for each measurement
 
 # Create a vector that indentifies the ID, mean & stddev columns as TRUE
 vector <- (grepl("activity..",columns) | grepl("subject..",columns) | grepl("-mean..",columns) &
@@ -48,7 +48,7 @@ vector <- (grepl("activity..",columns) | grepl("subject..",columns) | grepl("-me
 # Update MergedDataSet based on previously identified columns
 MergedDataSet <- MergedDataSet[vector==TRUE];
 
-###### 3. Use descriptive activity names to name the activities in the data set
+### 3. Use descriptive activity names to name the activities in the data set
 
 # Add in descriptive activity names to MergedDataSet & update columns vector
 MergedDataSet <- merge(MergedDataSet,activityLabels,by='activityId',all.x=TRUE);
@@ -56,7 +56,7 @@ MergedDataSet <- merge(MergedDataSet,activityLabels,by='activityId',all.x=TRUE);
 
 columns <- colnames(MergedDataSet);
 
-###### 4. Appropriately label the data set with descriptive activity names.
+#### 4. Appropriately label the data set with descriptive activity names.
 
 # Tidy column names
 for (i in 1:length(columns)) 
@@ -81,7 +81,7 @@ colnames(MergedDataSet) <- columns;
 # Remove activityType column
 MergedDataSet <- MergedDataSet[,names(MergedDataSet) != 'activityType'];
 
-###### 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+##### 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 # Averaging each activity and each subject as Tidy Data
 tidyData <- aggregate(MergedDataSet[,names(MergedDataSet) 
