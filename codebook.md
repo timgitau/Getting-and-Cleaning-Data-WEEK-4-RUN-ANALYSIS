@@ -22,14 +22,14 @@ The following text files were imported and merged. Column names were assigned at
 
 ###Text Files Imported:
 
-'features.txt'
-'activity_labels.txt'
-'subject_train.txt'
-'x_train.txt'
-'y_train.txt'
-'subject_test.txt'
-'x_test.txt'
-'y_test.txt'
+#'features.txt'
+#'activity_labels.txt'
+#'subject_train.txt'
+#'x_train.txt'
+#'y_train.txt'
+#'subject_test.txt'
+#'x_test.txt'
+#'y_test.txt'
 ##2. EXTRACTING MEASUREMENTS ON MEAN & STANDARD DEVIATION A logical vector was created identifying TRUE for the ID, mean & stdev columns and FALSE for other values. Merged data was then subsetted to only keep the relevant columns
 
 ##3. RENAME ACTIVITIES IN DATA SET WITH DESCRIPTIVE ACTIVITY NAMES 'activity_labels.txt' was merged with the subsetted data to add descriptive activity names to merged and subsetted data set. Values in 'activityId' column were then replaced with the matching values from the 'activityType' column in order to make the data easier to read.
